@@ -17,6 +17,8 @@ Plug 'ggreer/the_silver_searcher'
 Plug 'phanviet/vim-monokai-pro'
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline' " used by ale and better look & feel
+Plug 'altercation/vim-colors-solarized'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
 
