@@ -5,10 +5,14 @@ call plug#begin('~/.vim/plugged')
 Plug 'dense-analysis/ale' " linter
 Plug 'fatih/vim-go'
 Plug 'ctrlpvim/ctrlp.vim' " used by vim-go
-Plug 'SirVer/ultisnips' " https://github.com/fatih/vim-go/blob/master/gosnippets/UltiSnips/go.snippets
+" Plug 'SirVer/ultisnips' " https://github.com/fatih/vim-go/blob/master/gosnippets/UltiSnips/go.snippets
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+" do not forget install apt-get install silversearcher-ag
+Plug 'ggreer/the_silver_searcher'
+" enable it when sudo apt-get install ripgrep will be available
+" Plug 'BurntSushi/ripgrep'
 " look & feel
 Plug 'phanviet/vim-monokai-pro'
 Plug 'morhetz/gruvbox'
@@ -25,7 +29,7 @@ map <C-n> :NERDTreeToggle<CR>
 
 " vim-go
 let g:go_fmt_command = "goimports"
-let g:go_auto_type_info = 1 " show type at bottom line
+" let g:go_auto_type_info = 1 " show type at bottom line
 
 " ale
 let g:ale_sign_error = '⤫'
