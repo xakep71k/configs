@@ -1,3 +1,10 @@
+" how to build vim on ubuntu
+" sudo apt install build-essential libx11-dev libxt-dev libncurses5-dev libgtk-3-dev
+" git clone https://github.com/vim/vim.git
+" cd vim/src
+" ./configure --with-x --enable-gui=gtk3 --prefix=/home/alek/soft/vim
+" make && make install
+
 " install pugin installer
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin('~/.vim/plugged')
