@@ -70,5 +70,6 @@ else
 endif
 
 " key mapping
-map <C-S> :w<CR>
-map <C-Q> :q<CR>
+map <C-S> :w<CR> " CTRL-S сохранить
+map <C-Q> :q<CR> " CTRL-Q выход
+imap <C-BS> <C-W> " CTRL-BACKSPACE удаляет слово в insert mode
