@@ -56,6 +56,7 @@ set hls
 set mouse=a
 set wildmode=list:longest "autocomplete like bash
 set ignorecase
+set smartcase
 set incsearch
 " remember last position
 if has("autocmd")
