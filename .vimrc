@@ -70,6 +70,11 @@ else
 endif
 
 " key mapping
-map <C-S> :w<CR> " CTRL-S сохранить
-map <C-Q> :q<CR> " CTRL-Q выход
-imap <C-BS> <C-W> " CTRL-BACKSPACE удаляет слово в insert mode
+" CTRL-S save
+map <C-S> :w<CR>
+" CTRL-Q quite
+map <C-Q> :q<CR>
+" CTRL-BACKSPACE delete a word in insert mode
+" not work in terminal
+imap <C-BS> <C-W>
+set backspace=indent,eol,start
