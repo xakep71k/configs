@@ -73,8 +73,10 @@ endif
 " key mapping
 " CTRL-S save
 map <C-S> :w<CR>
+inoremap <C-S> <C-o>:w<CR>
 " CTRL-Q quite
 map <C-Q> :q<CR>
+inoremap <C-Q> <C-o>:q<CR>
 " CTRL-BACKSPACE delete a word in insert mode
 " not work in terminal
 imap <C-BS> <C-W>
