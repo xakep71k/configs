@@ -81,3 +81,6 @@ inoremap <C-Q> <C-o>:q<CR>
 " not work in terminal
 imap <C-BS> <C-W>
 set backspace=indent,eol,start
+" copy/past
+vmap <C-c> "+yi
+imap <C-v> <C-r><C-o>+
