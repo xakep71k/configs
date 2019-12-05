@@ -84,3 +84,11 @@ set backspace=indent,eol,start
 " copy/past
 vmap <C-c> "+yi
 imap <C-v> <C-r><C-o>+
+" auto close
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
