@@ -18,8 +18,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " do not forget install apt-get install silversearcher-ag
 Plug 'ggreer/the_silver_searcher'
-" enable it when sudo apt-get install ripgrep will be available
-" Plug 'BurntSushi/ripgrep'
+Plug 'BurntSushi/ripgrep'
 " look & feel
 Plug 'phanviet/vim-monokai-pro'
 Plug 'morhetz/gruvbox'
