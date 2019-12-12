@@ -79,7 +79,7 @@ inoremap <C-Q> <C-o>:q<CR>
 " CTRL-BACKSPACE delete a word in insert mode
 " not work in terminal
 imap <C-BS> <C-W>
-imap <C-Del> X<Esc>ce
+imap <C-Del> <Esc>lce
 set backspace=indent,eol,start
 " copy/past
 vmap <C-c> "+yi
