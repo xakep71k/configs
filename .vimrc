@@ -52,7 +52,6 @@ let g:ale_linters = {'go': ['golangci-lint', 'golint']}
 " common vim settings
 " autocmd BufWritePre *.go :GoBuild!
 set hls
-set mouse=a
 set wildmode=list:longest "autocomplete like bash
 set ignorecase
 set smartcase
