@@ -83,3 +83,6 @@ set backspace=indent,eol,start
 " copy/past
 vmap <C-c> "+yi
 imap <C-v> <C-r><C-o>+
+
+" stop using current folder for *.swp files
+set bdir-=.
