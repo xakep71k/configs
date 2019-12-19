@@ -12,7 +12,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'dense-analysis/ale' " linter
 Plug 'fatih/vim-go'
 Plug 'ctrlpvim/ctrlp.vim' " used by vim-go
-" Plug 'SirVer/ultisnips' " https://github.com/fatih/vim-go/blob/master/gosnippets/UltiSnips/go.snippets
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
