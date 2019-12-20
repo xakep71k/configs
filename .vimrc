@@ -85,3 +85,7 @@ imap <C-v> <C-r><C-o>+
 
 " stop using current folder for *.swp files
 set bdir-=.
+
+" autocomplete after dot
+" au filetype go inoremap <buffer> . .<C-x><C-o>
+
