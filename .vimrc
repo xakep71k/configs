@@ -62,7 +62,11 @@ endif
 
 if has("gui_running")
 	set go=a
-	set guifont=Ubuntu\ Mono\ 18
+	if has("win32")
+		set guifont=Consolas:h14:cRUSSIAN:qDRAFT
+	else
+		set guifont=Ubuntu\ Mono\ 18
+	endif
 else
 	set mouse=nvi
 endif
@@ -88,4 +92,3 @@ set bdir-=.
 
 " autocomplete after dot
 " au filetype go inoremap <buffer> . .<C-x><C-o>
-
