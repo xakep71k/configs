@@ -38,6 +38,9 @@ map <C-n> :NERDTreeToggle<CR>
 let g:go_fmt_command = "goimports"
 " let g:go_auto_type_info = 1 " show type at bottom line
 
+" disable preview window
+set completeopt-=preview
+
 " ale
 let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
@@ -88,7 +91,7 @@ vmap <C-c> "+yi
 imap <C-v> <C-r><C-o>+
 
 " stop using current folder for *.swp files
-set bdir-=.
+set directory-=.
 
 " autocomplete after dot
 " au filetype go inoremap <buffer> . .<C-x><C-o>
