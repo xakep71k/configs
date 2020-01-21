@@ -15,6 +15,7 @@ Plug 'ctrlpvim/ctrlp.vim' " used by vim-go
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'dart-lang/dart-vim-plugin'
 " do not forget install apt-get install silversearcher-ag
 Plug 'ggreer/the_silver_searcher'
 Plug 'BurntSushi/ripgrep'
@@ -50,6 +51,9 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 let g:ale_go_golangci_lint_package=1
 let g:ale_go_golangci_lint_options=''
 let g:ale_linters = {'go': ['golangci-lint', 'golint']}
+"
+" Dart
+let g:dart_format_on_save = 1
 
 " common vim settings
 " autocmd BufWritePre *.go :GoBuild!
