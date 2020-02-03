@@ -1,5 +1,8 @@
 " how to build vim on ubuntu
 " sudo apt install build-essential libx11-dev libxt-dev libncurses5-dev libgtk-3-dev
+" how to build vim on centos
+" yum groupinstall 'Development Tools'
+" yum install libX11-devel.x86_64 libXt-devel.x86_64 ncurses-devel.x86_64 gtk3-devel.x86_64
 " git clone https://github.com/vim/vim.git
 " cd vim/src
 " ./configure --with-x --enable-gui=gtk3 --prefix=/home/alek/soft/vim
@@ -36,7 +39,7 @@ map <C-n> :NERDTreeToggle<CR>
 
 " vim-go
 let g:go_fmt_command = "goimports"
-" let g:go_auto_type_info = 1 " show type at bottom line
+let g:go_auto_type_info = 1 " show type at bottom line
 
 " disable preview window
 set completeopt-=preview
