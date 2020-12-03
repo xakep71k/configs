@@ -46,8 +46,8 @@ let g:go_auto_type_info = 1 " show type at bottom line
 set completeopt-=preview
 
 " ale
-let g:ale_sign_error = '⤫'
-let g:ale_sign_warning = '⚠'
+"let g:ale_sign_error = '⤫'
+"let g:ale_sign_warning = '⚠'
 let g:airline#extensions#ale#enabled = 1
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
@@ -102,3 +102,4 @@ set directory-=.
 
 " autocomplete after dot
 " au filetype go inoremap <buffer> . .<C-x><C-o>
+
