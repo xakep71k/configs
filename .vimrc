@@ -102,4 +102,4 @@ set directory-=.
 
 " autocomplete after dot
 " au filetype go inoremap <buffer> . .<C-x><C-o>
-
+set expandtab ts=4 sw=4 ai
