@@ -142,6 +142,10 @@ Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-fugitive'
 
 Plug 'dense-analysis/ale' " linter
+
+" do not forget install apt-get install silversearcher-ag
+Plug 'ggreer/the_silver_searcher'
+Plug 'BurntSushi/ripgrep'
 call plug#end()
 
 
