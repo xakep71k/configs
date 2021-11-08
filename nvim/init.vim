@@ -1,3 +1,4 @@
+" https://sharksforarms.dev/posts/neovim-rust/
 "============= START: common settings ================
 " set clipboard+=unnamedplus
 " key mapping
@@ -74,7 +75,7 @@ endif
 
 
 set hls
-set wildmode=list:longest "autocomplete like bash
+"set wildmode=list:longest "autocomplete like bash
 set ignorecase
 set smartcase
 set incsearch
@@ -129,15 +130,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'dense-analysis/ale' " linter
 Plug 'fatih/vim-go'
 Plug 'ctrlpvim/ctrlp.vim' " used by vim-go
-"Autocomplete:
-Plug 'ncm2/ncm2'
-Plug 'ncm2/ncm2-go'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
-Plug 'stamblerre/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
-"Snippets:
-Plug 'ncm2/ncm2-ultisnips'
-Plug 'SirVer/ultisnips'
 "Git:
 Plug 'tpope/vim-fugitive'
 
@@ -279,15 +271,6 @@ let g:go_fmt_command = "goimports"
 
 "AUTOCOMPLETE:
 "-------------
-augroup ncm2
-  au!
-  autocmd BufEnter * call ncm2#enable_for_buffer()
-  set completeopt=noinsert,menuone,noselect
-  au User Ncm2PopupOpen set completeopt=noinsert,menuone,noselect
-  au User Ncm2PopupClose set completeopt=menuone
-augroup END
-"Press Enter to select item in autocomplete popup
-inoremap <silent> <expr> <CR> (pumvisible() ? ncm2_ultisnips#expand_or("\<CR>", 'n') : "\<CR>")
 "Cycle through completion entries with tab/shift+tab
 inoremap <expr> <TAB> pumvisible() ? "\<c-n>" : "\<TAB>"
 inoremap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<TAB>"
@@ -303,3 +286,8 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 "=============== END: go settings ====================
+"
+"=============== START: rust settings ==================
+autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 1000)
+"=============== END: rust settings ====================
+

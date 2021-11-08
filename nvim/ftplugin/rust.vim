@@ -1,3 +1,4 @@
+set number
 " Code navigation shortcuts
 nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
@@ -10,10 +11,10 @@ nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
 
 nnoremap <silent> ga    <cmd>lua vim.lsp.buf.code_action()<CR>
-autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 200)
+nnoremap <silent> <c-w> <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
 " Set updatetime for CursorHold
 " 300ms of no cursor movement to trigger CursorHold
-set updatetime=300
+" set updatetime=1000
 " Show diagnostic popup on cursor hold
 " autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
 
