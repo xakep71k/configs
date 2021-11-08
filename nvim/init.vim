@@ -154,8 +154,6 @@ Plug 'nvim-lua/plenary.nvim'
 "Git:
 Plug 'tpope/vim-fugitive'
 
-Plug 'dense-analysis/ale' " linter
-
 " do not forget install apt-get install silversearcher-ag
 Plug 'ggreer/the_silver_searcher'
 Plug 'BurntSushi/ripgrep'
@@ -196,16 +194,6 @@ highlight! link NERDTreeFlags NERDTreeDir
 map <C-p> :FZF<CR>
 "allow FZF to search hidden 'dot' files
 let $FZF_DEFAULT_COMMAND = "find -L -not \\( -path ./vendor -prune \\)"
-
-
-"let g:ale_sign_error = '⤫'
-"let g:ale_sign_warning = '⚠'
-let g:airline#extensions#ale#enabled = 1
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
-let g:ale_go_golangci_lint_package=1
-let g:ale_go_golangci_lint_options=''
-let g:ale_linters = {'go': ['golangci-lint', 'golint']}
 "=============== END: plugin settings ==================
 
 
@@ -222,8 +210,10 @@ end)
 local golang_opts = {
     auto_format = true,
     auto_lint = true,
-    linter = 'revive',
-    lint_prompt_style = 'qf',
+    -- linters: revive, errcheck, staticcheck, golangci-lint
+    linter = 'golangci-lint',
+    -- qt or vt
+    lint_prompt_style = 'qt',
     formatter = 'goimports',
     test_flags = {'-v'},
     test_timeout = '30s',
