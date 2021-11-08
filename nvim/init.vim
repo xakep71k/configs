@@ -195,7 +195,7 @@ highlight! link NERDTreeFlags NERDTreeDir
 "allows FZF to open by pressing CTRL-F
 map <C-p> :FZF<CR>
 "allow FZF to search hidden 'dot' files
-let $FZF_DEFAULT_COMMAND = "find -L"
+let $FZF_DEFAULT_COMMAND = "find -L -not \\( -path ./vendor -prune \\)"
 
 
 "let g:ale_sign_error = '⤫'
