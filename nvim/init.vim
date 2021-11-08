@@ -170,12 +170,12 @@ let g:blamer_enabled = 1
 set background=dark
 colorscheme gruvbox
 colorscheme onehalfdark
-colorscheme tender
 set termguicolors     " enable true colors support
 let ayucolor="dark"   " for dark version of theme
 let ayucolor="light"  " for light version of theme
 let ayucolor="mirage" " for mirage version of theme
 colorscheme ayu
+colorscheme tender
 
 
 "FILE BROWSER:
