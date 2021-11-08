@@ -1,4 +1,19 @@
+" how to build vim on ubuntu
+" sudo apt install build-essential libx11-dev libxt-dev libncurses5-dev libgtk-3-dev
+" how to build vim on centos
+" yum groupinstall 'Development Tools'
+" yum install libX11-devel.x86_64 libXt-devel.x86_64 ncurses-devel.x86_64 gtk3-devel.x86_64
+" git clone https://github.com/vim/vim.git
+" cd vim/src
+" ./configure --with-x --enable-gui=gtk3 --prefix=/home/alek/soft/vim
+" make && make install
+
+" install pugin installer
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"
+" NOTES:
 " https://sharksforarms.dev/posts/neovim-rust/
+
 "============= START: common settings ================
 " set clipboard+=unnamedplus
 " key mapping
@@ -13,9 +28,6 @@ inoremap <C-Q> <C-o>:q<CR>
 imap <C-BS> <C-W>
 imap <C-Del> <Esc>lce
 set backspace=indent,eol,start
-" copy/past
-vmap <C-c> "+yi
-imap <C-v> <C-r><C-o>+
 
 set guifont=Ubuntu\ Mono\ 18
 
@@ -24,6 +36,8 @@ set directory-=.
 
 "COPY/PASTE:
 "-----------
+vmap <C-c> "+yi
+imap <C-v> <C-r><C-o>+
 "Increases the memory limit from 50 lines to 1000 lines
 :set viminfo='100,<1000,s10,h
 
@@ -40,15 +54,6 @@ vnoremap > >gv
 "---------
 "Automatically reloads neovim configuration file on write (w)
 autocmd! bufwritepost init.vim source %
-
-"MOUSE:
-"------
-"Allow using mouse helpful for switching/resizing windows
-set mouse=a
-if &term =~ '^screen'
-  " tmux knows the extended mouse mode
-  set ttymouse=xterm2
-endif
 
 "SWAP:
 "-----
@@ -69,13 +74,32 @@ set cursorline
 "----------
 "Open file at same line last closed
 if has("autocmd")
-  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-  \| exe "normal! g'\"" | endif
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+"TABS:
+"----------
+set expandtab ts=4 sw=4 ai
+
+if has("gui_running")
+	set go=a
+	if has("win32")
+		set guifont=Consolas:h14:cRUSSIAN:qDRAFT
+	else
+		set guifont=Ubuntu\ Mono\ 18
+	endif
+else
+	set mouse=nvi
+endif
+
+if &term =~ '^screen'
+  " tmux knows the extended mouse mode
+  set ttymouse=xterm2
 endif
 
 
 set hls
-"set wildmode=list:longest "autocomplete like bash
+set wildmode=list:longest "autocomplete like bash
 set ignorecase
 set smartcase
 set incsearch
@@ -92,8 +116,9 @@ Plug 'hrsh7th/nvim-cmp'
 " LSP completion source for nvim-cmp
 Plug 'hrsh7th/cmp-nvim-lsp'
 
+" To enable more of the features of rust-analyzer, such as inlay hints and more!
+Plug 'simrat39/rust-tools.nvim'
 " Snippet completion source for nvim-cmp
-Plug 'hrsh7th/cmp-vsnip'
 
 " Other usefull completion sources
 Plug 'hrsh7th/cmp-path'
@@ -101,16 +126,9 @@ Plug 'hrsh7th/cmp-buffer'
 
 " See hrsh7th's other plugins for more completion sources!
 
-" To enable more of the features of rust-analyzer, such as inlay hints and more!
-Plug 'simrat39/rust-tools.nvim'
-
 " Snippet engine
 Plug 'hrsh7th/vim-vsnip'
 
-" Fuzzy finder
-" Optional
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
 
 " Color scheme used in the GIFs!
 " Plug 'arcticicestudio/nord-vim'
@@ -127,9 +145,12 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 "Golang:
-Plug 'dense-analysis/ale' " linter
-Plug 'fatih/vim-go'
-Plug 'ctrlpvim/ctrlp.vim' " used by vim-go
+Plug 'crispgm/nvim-go'
+
+"For golang and rust
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+
 "Git:
 Plug 'tpope/vim-fugitive'
 
@@ -140,9 +161,12 @@ Plug 'ggreer/the_silver_searcher'
 Plug 'BurntSushi/ripgrep'
 call plug#end()
 
+"=============== START: plugin settings ================
 
-"=============== START: plugin common settings ================
+"THEMES:
+set background=dark
 colorscheme gruvbox
+
 
 "FILE BROWSER:
 "-------------
@@ -150,6 +174,7 @@ colorscheme gruvbox
 " map nt :NERDTreeTabsToggle<CR>
 map <C-n> :NERDTreeTabsToggle<CR>
 "Start NERDtree when dir is selected (e.g. "vim .") and start NERDTreeTabs
+let g:nerdtree_tabs_open_on_gui_startup = 2
 let g:nerdtree_tabs_open_on_console_startup=2
 "Add a close button in the upper right for tabs
 let g:tablineclosebutton=1
@@ -172,7 +197,54 @@ map <C-p> :FZF<CR>
 "allow FZF to search hidden 'dot' files
 let $FZF_DEFAULT_COMMAND = "find -L"
 
-"=============== END: plugin common settings ==================
+
+"let g:ale_sign_error = '⤫'
+"let g:ale_sign_warning = '⚠'
+let g:airline#extensions#ale#enabled = 1
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+let g:ale_go_golangci_lint_package=1
+let g:ale_go_golangci_lint_options=''
+let g:ale_linters = {'go': ['golangci-lint', 'golint']}
+"=============== END: plugin settings ==================
+
+
+"=============== START: go settings ==================
+" https://github.com/crispgm/nvim-go
+"require('go').config.update_tool('quicktype', function(tool)
+"    tool.pkg_mgr = 'npm'
+"end)
+lua <<EOF
+require('go').config.update_tool('quicktype', function(tool)
+    tool.pkg_mgr = 'npm'
+end)
+
+local golang_opts = {
+    auto_format = true,
+    auto_lint = true,
+    linter = 'revive',
+    lint_prompt_style = 'qf',
+    formatter = 'goimports',
+    test_flags = {'-v'},
+    test_timeout = '30s',
+    test_env = {},
+    test_popup = true,
+    test_popup_width = 80,
+    test_popup_height = 10,
+    test_open_cmd = 'edit',
+    tags_name = 'json',
+    tags_options = {'json=omitempty'},
+    tags_transform = 'snakecase',
+    tags_flags = {'-skip-unexported'},
+    quick_type_flags = {'--just-types'},
+}
+-- setup nvim-go
+require('go').setup(golang_opts)
+-- setup lsp client
+require('lspconfig').gopls.setup({})
+EOF
+
+"=============== END: go settings ====================
 
 "=============== START: rust settings ================
 " Set completeopt to have a better completion experience
@@ -192,7 +264,7 @@ set shortmess+=c
 lua <<EOF
 local nvim_lsp = require'lspconfig'
 
-local opts = {
+local rust_opts = {
     tools = { -- rust-tools options
         autoSetHints = true,
         hover_with_actions = true,
@@ -222,7 +294,7 @@ local opts = {
     },
 }
 
-require('rust-tools').setup(opts)
+require('rust-tools').setup(rust_opts)
 EOF
 
 " Setup Completion
@@ -262,32 +334,43 @@ cmp.setup({
 })
 EOF
 "=============== END: rust settings ==================
-
-
-"=============== START: go settings ==================
-"AUTO IMPORT:
-"------------
-let g:go_fmt_command = "goimports"
-
-"AUTOCOMPLETE:
-"-------------
-"Cycle through completion entries with tab/shift+tab
-inoremap <expr> <TAB> pumvisible() ? "\<c-n>" : "\<TAB>"
-inoremap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<TAB>"
-"Allow getting out of pop with Down/Up arrow keys
-inoremap <expr> <down> pumvisible() ? "\<C-E>" : "\<down>"
-inoremap <expr> <up> pumvisible() ? "\<C-E>" : "\<up>"
-
-"SNIPPETS:
-"---------
-"Change default expand since TAB is used to cycle options
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-
-"=============== END: go settings ====================
 "
-"=============== START: rust settings ==================
-autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 1000)
-"=============== END: rust settings ====================
+" Code navigation shortcuts for LSP
+nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
+nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
+
+nnoremap <silent> ga    <cmd>lua vim.lsp.buf.code_action()<CR>
+nnoremap <silent> <c-w> <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
+" Set updatetime for CursorHold
+" 300ms of no cursor movement to trigger CursorHold
+" set updatetime=1000
+" Show diagnostic popup on cursor hold
+" autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
+
+" Goto previous/next diagnostic warning/error
+nnoremap <silent> g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+nnoremap <silent> g] <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+
+" have a fixed column for the diagnostics to appear in
+" this removes the jitter when warnings/errors flow in
+set signcolumn=yes
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+" Using Lua functions
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
