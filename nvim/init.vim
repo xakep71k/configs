@@ -39,7 +39,8 @@ set directory-=.
 vmap <C-c> "+yi
 imap <C-v> <C-r><C-o>+
 "Increases the memory limit from 50 lines to 1000 lines
-:set viminfo='100,<1000,s10,h
+set viminfo='100,<1000,s10,h
+set clipboard+=unnamed
 
 "NUMBERING:
 "----------
@@ -133,6 +134,9 @@ Plug 'hrsh7th/vim-vsnip'
 " THEMES
 Plug 'morhetz/gruvbox'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
+Plug 'chriskempson/base16-vim'
+Plug 'jacoborus/tender.vim'
+Plug 'ayu-theme/ayu-vim'
 
 "File Browser:
 Plug 'preservim/nerdtree'
@@ -166,6 +170,12 @@ let g:blamer_enabled = 1
 set background=dark
 colorscheme gruvbox
 colorscheme onehalfdark
+colorscheme tender
+set termguicolors     " enable true colors support
+let ayucolor="dark"   " for dark version of theme
+let ayucolor="light"  " for light version of theme
+let ayucolor="mirage" " for mirage version of theme
+colorscheme ayu
 
 
 "FILE BROWSER:
@@ -195,7 +205,7 @@ highlight! link NERDTreeFlags NERDTreeDir
 "allows FZF to open by pressing CTRL-F
 map <C-p> :FZF<CR>
 "allow FZF to search hidden 'dot' files
-let $FZF_DEFAULT_COMMAND = "find -L -not \\( -path ./vendor -prune \\)"
+let $FZF_DEFAULT_COMMAND = "find -L -not \\( -path ./vendor -prune \\) -type f"
 "=============== END: plugin settings ==================
 
 
@@ -365,4 +375,3 @@ nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
-
