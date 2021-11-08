@@ -130,9 +130,9 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/vim-vsnip'
 
 
-" Color scheme used in the GIFs!
-" Plug 'arcticicestudio/nord-vim'
+" THEMES
 Plug 'morhetz/gruvbox'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
 
 "File Browser:
 Plug 'preservim/nerdtree'
@@ -152,7 +152,7 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 
 "Git:
-Plug 'tpope/vim-fugitive'
+Plug 'APZelos/blamer.nvim'
 
 " do not forget install apt-get install silversearcher-ag
 Plug 'ggreer/the_silver_searcher'
@@ -160,10 +160,12 @@ Plug 'BurntSushi/ripgrep'
 call plug#end()
 
 "=============== START: plugin settings ================
+let g:blamer_enabled = 1
 
 "THEMES:
 set background=dark
 colorscheme gruvbox
+colorscheme onehalfdark
 
 
 "FILE BROWSER:
