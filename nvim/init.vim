@@ -167,15 +167,15 @@ call plug#end()
 "let g:blamer_enabled = 1
 
 "THEMES:
-set background=dark
-colorscheme gruvbox
-colorscheme onehalfdark
-set termguicolors     " enable true colors support
-let ayucolor="dark"   " for dark version of theme
-let ayucolor="light"  " for light version of theme
-let ayucolor="mirage" " for mirage version of theme
-colorscheme ayu
-colorscheme palenight
+" set background=dark
+" colorscheme gruvbox
+" colorscheme onehalfdark
+" set termguicolors     " enable true colors support
+" let ayucolor="dark"   " for dark version of theme
+" let ayucolor="light"  " for light version of theme
+" let ayucolor="mirage" " for mirage version of theme
+" colorscheme ayu
+" colorscheme palenight
 colorscheme tender
 
 
