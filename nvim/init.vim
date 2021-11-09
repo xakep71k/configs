@@ -212,9 +212,6 @@ let $FZF_DEFAULT_COMMAND = "find -L -not \\( -path ./vendor -prune \\) -type f"
 
 "=============== START: go settings ==================
 " https://github.com/crispgm/nvim-go
-"require('go').config.update_tool('quicktype', function(tool)
-"    tool.pkg_mgr = 'npm'
-"end)
 lua <<EOF
 require('go').config.update_tool('quicktype', function(tool)
     tool.pkg_mgr = 'npm'
