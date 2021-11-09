@@ -137,12 +137,12 @@ Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'chriskempson/base16-vim'
 Plug 'jacoborus/tender.vim'
 Plug 'ayu-theme/ayu-vim'
+Plug 'drewtempelmeyer/palenight.vim'
 
 "File Browser:
 Plug 'preservim/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'mkitt/tabline.vim'
-" Plug 'ryanoasis/vim-devicons'
 
 "File Search:
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -164,7 +164,7 @@ Plug 'BurntSushi/ripgrep'
 call plug#end()
 
 "=============== START: plugin settings ================
-let g:blamer_enabled = 1
+"let g:blamer_enabled = 1
 
 "THEMES:
 set background=dark
@@ -175,6 +175,7 @@ let ayucolor="dark"   " for dark version of theme
 let ayucolor="light"  " for light version of theme
 let ayucolor="mirage" " for mirage version of theme
 colorscheme ayu
+colorscheme palenight
 colorscheme tender
 
 
@@ -223,9 +224,9 @@ local golang_opts = {
     auto_format = true,
     auto_lint = true,
     -- linters: revive, errcheck, staticcheck, golangci-lint
-    linter = 'golangci-lint',
-    -- qt or vt
-    lint_prompt_style = 'qt',
+    linter = 'golangci_lint',
+    -- qf or vt
+    lint_prompt_style = 'qf',
     formatter = 'goimports',
     test_flags = {'-v'},
     test_timeout = '30s',
