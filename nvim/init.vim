@@ -23,6 +23,8 @@ inoremap <C-S> <C-o>:w<CR>
 " CTRL-Q quite
 map <C-Q> :q<CR>
 inoremap <C-Q> <C-o>:q<CR>
+" new tab
+map <leader>t :tabnew 
 " CTRL-BACKSPACE delete a word in insert mode
 " not work in terminal
 imap <C-BS> <C-W>
@@ -104,6 +106,27 @@ set wildmode=list:longest "autocomplete like bash
 set ignorecase
 set smartcase
 set incsearch
+
+" highlight double click 
+nnoremap <silent> <2-LeftMouse> :let @/='\V\<'.escape(expand('<cword>'), '\').'\>'<cr>:set hls<cr>
+
+" Folding:
+set foldmethod=indent
+set foldlevel=99
+
+" to fix copy in clipboard during remote connection
+let g:clipboard = {
+    \ 'name': 'xsel',
+    \ 'copy': {
+    \     '+': 'xsel -ib',
+    \     '*': 'xsel -ip'
+    \ },
+    \ 'paste': {
+    \     '+': 'xsel -ob',
+    \     '*': 'xsel -op'
+    \ },
+    \ 'cache_enabled': 1
+    \ }
 "============= END: common settings ==================
 
 call plug#begin('~/.nvim/plugged')
@@ -165,6 +188,7 @@ Plug 'BurntSushi/ripgrep'
 " Telescope
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+
 call plug#end()
 
 "=============== START: plugin settings ================
@@ -177,10 +201,10 @@ call plug#end()
 " set termguicolors     " enable true colors support
 " let ayucolor="dark"   " for dark version of theme
 " let ayucolor="light"  " for light version of theme
-" let ayucolor="mirage" " for mirage version of theme
-" colorscheme ayu
+let ayucolor="mirage" " for mirage version of theme
+colorscheme ayu
 " colorscheme palenight
-colorscheme tender
+" colorscheme tender
 
 
 "FILE BROWSER:
@@ -340,6 +364,7 @@ EOF
 "=============== END: rust settings ==================
 "
 " Code navigation shortcuts for LSP
+nnoremap <silent> <C-LeftMouse> <LeftMouse><cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
