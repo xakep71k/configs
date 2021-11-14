@@ -108,7 +108,7 @@ set smartcase
 set incsearch
 
 " highlight double click 
-nnoremap <silent> <2-LeftMouse> :let @/='\V\<'.escape(expand('<cword>'), '\').'\>'<cr>:set hls<cr>
+"nnoremap <silent> <2-LeftMouse> :let @/='\V\<'.escape(expand('<cword>'), '\').'\>'<cr>:set hls<cr>
 
 " Folding:
 set foldmethod=indent
@@ -189,20 +189,24 @@ Plug 'BurntSushi/ripgrep'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
+" powerline or airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 call plug#end()
 
 "=============== START: plugin settings ================
 "let g:blamer_enabled = 1
 
 "THEMES:
-" set background=dark
-" colorscheme gruvbox
+set background=dark
+colorscheme gruvbox
 " colorscheme onehalfdark
 " set termguicolors     " enable true colors support
 " let ayucolor="dark"   " for dark version of theme
 " let ayucolor="light"  " for light version of theme
-let ayucolor="mirage" " for mirage version of theme
-colorscheme ayu
+" let ayucolor="mirage" " for mirage version of theme
+" colorscheme ayu
 " colorscheme palenight
 " colorscheme tender
 
@@ -376,7 +380,8 @@ nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
 
 nnoremap <silent> ga    <cmd>lua vim.lsp.buf.code_action()<CR>
-nnoremap <silent> <c-w> <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
+" nnoremap <silent> <c-w> <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
+nnoremap <leader>w <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
 " Set updatetime for CursorHold
 " 300ms of no cursor movement to trigger CursorHold
 " set updatetime=1000
