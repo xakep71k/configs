@@ -364,6 +364,8 @@ cmp.setup({
   },
 })
 EOF
+
+autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 200)
 "=============== END: rust settings ==================
 "
 " Code navigation shortcuts for LSP
