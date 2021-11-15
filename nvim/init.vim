@@ -10,9 +10,6 @@
 
 " install pugin installer
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-"
-" NOTES:
-" https://sharksforarms.dev/posts/neovim-rust/
 
 "============= START: common settings ================
 " set clipboard+=unnamedplus
@@ -242,6 +239,7 @@ let $FZF_DEFAULT_COMMAND = "find -L -not \\( -path ./vendor -prune \\) -type f"
 
 
 "=============== START: go settings ==================
+" https://sharksforarms.dev/posts/neovim-rust/
 " https://github.com/crispgm/nvim-go
 lua <<EOF
 require('go').config.update_tool('quicktype', function(tool)
