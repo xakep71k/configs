@@ -130,6 +130,9 @@ set relativenumber
 
 call plug#begin('~/.nvim/plugged')
 
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+
 " Collection of common configurations for the Nvim LSP client
 Plug 'neovim/nvim-lspconfig'
 
