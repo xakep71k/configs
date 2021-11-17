@@ -124,6 +124,8 @@ let g:clipboard = {
     \ },
     \ 'cache_enabled': 1
     \ }
+
+set relativenumber
 "============= END: common settings ==================
 
 call plug#begin('~/.nvim/plugged')
