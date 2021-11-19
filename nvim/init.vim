@@ -126,6 +126,12 @@ let g:clipboard = {
     \ }
 
 set relativenumber
+
+" undo history
+set undofile                " Save undos after file closes
+set undodir=~/.local/share/nvim/undo " where to save undo histories
+set undolevels=1000         " How many undos
+set undoreload=10000        " number of lines to save for undo
 "============= END: common settings ==================
 
 call plug#begin('~/.nvim/plugged')
