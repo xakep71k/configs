@@ -132,6 +132,8 @@ set undofile                " Save undos after file closes
 set undodir=~/.local/share/nvim/undo " where to save undo histories
 set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
+" keep cursor in the middle of the screen
+"set so=999
 "============= END: common settings ==================
 
 call plug#begin('~/.nvim/plugged')
@@ -264,7 +266,7 @@ local golang_opts = {
     -- linters: revive, errcheck, staticcheck, golangci-lint
     linter = 'golangci_lint',
     -- qf or vt
-    lint_prompt_style = 'qf',
+    lint_prompt_style = 'vt',
     formatter = 'goimports',
     test_flags = {'-v'},
     test_timeout = '30s',
