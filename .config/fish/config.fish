@@ -12,3 +12,4 @@ end
 #end
 set fish_prompt_pwd_dir_length 0
 alias ls="ls --icons"
+alias f=fg
