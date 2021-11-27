@@ -19,8 +19,9 @@ map <C-S> :w<CR>
 inoremap <C-S> <C-o>:w<CR>
 " CTRL-Q quite
 map <C-Q> :q<CR>
-map <C-X> :x<CR>
 inoremap <C-Q> <C-o>:q<CR>
+map <C-X> :x<CR>
+inoremap <C-X> <C-o>:x<CR>
 " new tab
 map <leader>t :tabnew 
 " CTRL-BACKSPACE delete a word in insert mode
