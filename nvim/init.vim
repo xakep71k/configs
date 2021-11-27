@@ -178,8 +178,10 @@ Plug 'drewtempelmeyer/palenight.vim'
 "File Browser:
 Plug 'preservim/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'mkitt/tabline.vim'
 Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 "File Search:
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -243,16 +245,28 @@ let g:nerdtree_tabs_autofind=1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
 "Hide expand/collapse arrows
-let g:NERDTreeDirArrowExpandable = "\u00a0"
-let g:NERDTreeDirArrowCollapsible = "\u00a0"
+" let g:NERDTreeDirArrowExpandable = "\u00a0"
+" let g:NERDTreeDirArrowCollapsible = "\u00a0"
 let g:WebDevIconsNerdTreeBeforeGlyphPadding = ""
 highlight! link NERDTreeFlags NERDTreeDir
-
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+                \ 'Modified'  :'✹',
+                \ 'Staged'    :'✚',
+                \ 'Untracked' :'✭',
+                \ 'Renamed'   :'➜',
+                \ 'Unmerged'  :'═',
+                \ 'Deleted'   :'✖',
+                \ 'Dirty'     :'✗',
+                \ 'Ignored'   :'☒',
+                \ 'Clean'     :'✔︎',
+                \ 'Unknown'   :'?',
+                \ }
+let g:NERDTreeGitStatusUseNerdFonts = 1
 
 "FILE SEARCH:
 "------------
 "allows FZF to open by pressing CTRL-F
-map <C-p> :FZF<CR>
+" map <C-p> :FZF<CR>
 "allow FZF to search hidden 'dot' files
 let $FZF_DEFAULT_COMMAND = "find -L -not \\( -path ./vendor -prune \\) -type f"
 "airline
@@ -451,7 +465,8 @@ nnoremap <silent> ]d <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 set signcolumn=yes
 
 " Find files using Telescope command-line sugar.
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
+" nnoremap <leader>ff <cmd>Telescope find_files<cr>
+map <C-p> :Telescope find_files<CR>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
