@@ -10,7 +10,7 @@ git clone https://github.com/xxczaki/deepin-snazzy.git
 #
 sudo apt-add-repository ppa:fish-shell/release-3
 sudo apt-get update
-sudo apt-get install fish powerline 
+sudo apt-get install fish powerline fonts-powerline
 
 #
 # oh my fish shell

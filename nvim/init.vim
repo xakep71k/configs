@@ -201,8 +201,11 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
 " powerline or airline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
 
 call plug#end()
 
@@ -249,6 +252,41 @@ highlight! link NERDTreeFlags NERDTreeDir
 map <C-p> :FZF<CR>
 "allow FZF to search hidden 'dot' files
 let $FZF_DEFAULT_COMMAND = "find -L -not \\( -path ./vendor -prune \\) -type f"
+"airline
+" let g:airline_powerline_fonts = 1
+" lualine
+lua << END
+ require'lualine'.setup {
+   options = {
+     theme = 'horizon',
+     icons_enabled = true,
+     theme = 'auto',
+     component_separators = { left = '', right = ''},
+     section_separators = { left = '', right = ''},
+     disabled_filetypes = {},
+     always_divide_middle = true,
+   },
+   sections = {
+     lualine_a = {'mode'},
+     lualine_b = {'branch', 'diff',
+                   {'diagnostics', sources={'nvim_lsp', 'coc'}}},
+     lualine_c = {'filename'},
+     lualine_x = {'encoding', 'fileformat', 'filetype'},
+     lualine_y = {'progress'},
+     lualine_z = {'location'}
+   },
+   inactive_sections = {
+     lualine_a = {},
+     lualine_b = {},
+     lualine_c = {'filename'},
+     lualine_x = {'location'},
+     lualine_y = {},
+     lualine_z = {}
+   },
+   tabline = {},
+   extensions = {}
+ }
+END
 "=============== END: plugin settings ==================
 
 
@@ -266,7 +304,7 @@ local golang_opts = {
     -- linters: revive, errcheck, staticcheck, golangci-lint
     linter = 'golangci_lint',
     -- qf or vt
-    lint_prompt_style = 'vt',
+    lint_prompt_style = 'qf',
     formatter = 'goimports',
     test_flags = {'-v'},
     test_timeout = '30s',
