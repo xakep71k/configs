@@ -10,7 +10,8 @@ git clone https://github.com/xxczaki/deepin-snazzy.git
 #
 sudo apt-add-repository ppa:fish-shell/release-3
 sudo apt-get update
-sudo apt-get install fish powerline fonts-powerline
+sudo apt-get install fish powerline fonts-powerline exa
+#Note: for exa install nerd font called Arimo
 
 #
 # oh my fish shell

@@ -19,6 +19,7 @@ map <C-S> :w<CR>
 inoremap <C-S> <C-o>:w<CR>
 " CTRL-Q quite
 map <C-Q> :q<CR>
+map <C-X> :x<CR>
 inoremap <C-Q> <C-o>:q<CR>
 " new tab
 map <leader>t :tabnew 
@@ -177,6 +178,7 @@ Plug 'drewtempelmeyer/palenight.vim'
 Plug 'preservim/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'mkitt/tabline.vim'
+Plug 'ryanoasis/vim-devicons'
 
 "File Search:
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -240,8 +242,8 @@ let g:nerdtree_tabs_autofind=1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
 "Hide expand/collapse arrows
-" let g:NERDTreeDirArrowExpandable = "\u00a0"
-" let g:NERDTreeDirArrowCollapsible = "\u00a0"
+let g:NERDTreeDirArrowExpandable = "\u00a0"
+let g:NERDTreeDirArrowCollapsible = "\u00a0"
 let g:WebDevIconsNerdTreeBeforeGlyphPadding = ""
 highlight! link NERDTreeFlags NERDTreeDir
 
@@ -258,7 +260,6 @@ let $FZF_DEFAULT_COMMAND = "find -L -not \\( -path ./vendor -prune \\) -type f"
 lua << END
  require'lualine'.setup {
    options = {
-     theme = 'horizon',
      icons_enabled = true,
      theme = 'auto',
      component_separators = { left = '', right = ''},
