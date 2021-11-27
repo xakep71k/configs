@@ -245,6 +245,8 @@ let g:nerdtree_tabs_autofind=1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
 "Hide expand/collapse arrows
+" let g:NERDTreeDirArrowExpandable = "+"
+" let g:NERDTreeDirArrowCollapsible = "-"
 " let g:NERDTreeDirArrowExpandable = "\u00a0"
 " let g:NERDTreeDirArrowCollapsible = "\u00a0"
 let g:WebDevIconsNerdTreeBeforeGlyphPadding = ""
