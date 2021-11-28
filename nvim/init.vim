@@ -309,7 +309,6 @@ END
 
 
 "=============== START: go settings ==================
-" https://sharksforarms.dev/posts/neovim-rust/
 " https://github.com/crispgm/nvim-go
 lua <<EOF
 require('go').config.update_tool('quicktype', function(tool)
@@ -346,6 +345,8 @@ EOF
 "=============== END: go settings ====================
 
 "=============== START: rust settings ================
+" install sudo apt install build-essential
+" https://sharksforarms.dev/posts/neovim-rust/
 " Set completeopt to have a better completion experience
 " :help completeopt
 " menuone: popup even when there's only one match
