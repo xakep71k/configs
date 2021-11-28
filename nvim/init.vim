@@ -136,6 +136,7 @@ set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
 " keep cursor in the middle of the screen
 "set so=999
+set title
 "============= END: common settings ==================
 
 call plug#begin('~/.nvim/plugged')
