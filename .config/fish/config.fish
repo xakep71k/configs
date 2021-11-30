@@ -11,5 +11,6 @@ end
 #  bind \cf peco_select_file     # Ctrl-f
 #end
 set fish_prompt_pwd_dir_length 0
+setenv LESS "-asrRix8" # scroll less in terminal
 alias ls="ls --icons"
 alias f=fg

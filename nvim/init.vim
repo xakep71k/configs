@@ -340,7 +340,14 @@ local golang_opts = {
 -- setup nvim-go
 require('go').setup(golang_opts)
 -- setup lsp client
-require('lspconfig').gopls.setup({})
+-- require('lspconfig').gopls.setup({})
+local lspconfig = require'lspconfig'
+lspconfig.gopls.setup({
+  settings = { gopls =  {
+    buildFlags =  {"-tags=licensing"}
+  }
+}
+})
 EOF
 
 "=============== END: go settings ====================
