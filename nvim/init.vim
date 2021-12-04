@@ -132,8 +132,8 @@ set relativenumber
 " undo history
 set undofile                " Save undos after file closes
 set undodir=~/.local/share/nvim/undo " where to save undo histories
-set undolevels=1000         " How many undos
-set undoreload=10000        " number of lines to save for undo
+set undolevels=100000         " How many undos
+set undoreload=1000000        " number of lines to save for undo
 " keep cursor in the middle of the screen
 "set so=999
 set title
@@ -166,6 +166,7 @@ Plug 'hrsh7th/cmp-buffer'
 
 " Snippet engine
 Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
 
 
 " THEMES
@@ -212,6 +213,8 @@ Plug 'nvim-telescope/telescope.nvim'
 
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
+
+Plug 'rmagatti/auto-session'
 
 call plug#end()
 
@@ -271,7 +274,7 @@ let g:NERDTreeGitStatusUseNerdFonts = 1
 "allows FZF to open by pressing CTRL-F
 " map <C-p> :FZF<CR>
 "allow FZF to search hidden 'dot' files
-let $FZF_DEFAULT_COMMAND = "find -L -not \\( -path ./vendor -prune \\) -type f"
+let $FZF_DEFAULT_COMMAND = "find -L -not \\( -path ./vendor -prune \\) -not \\( -path ./console -prune \\) -type f"
 "airline
 " let g:airline_powerline_fonts = 1
 " lualine
@@ -305,6 +308,10 @@ lua << END
    tabline = {},
    extensions = {}
  }
+END
+" Telescope:
+lua << END
+--require('telescope').setup{ defaults = { file_ignore_patterns = {"./vendor", "./console"} } }
 END
 "=============== END: plugin settings ==================
 
@@ -343,10 +350,11 @@ require('go').setup(golang_opts)
 -- require('lspconfig').gopls.setup({})
 local lspconfig = require'lspconfig'
 lspconfig.gopls.setup({
-  settings = { gopls =  {
-    buildFlags =  {"-tags=licensing"}
+  settings = {
+      gopls =  {
+      buildFlags =  {"-tags=licensing"}
+    }
   }
-}
 })
 EOF
 
@@ -478,7 +486,7 @@ set signcolumn=yes
 " Find files using Telescope command-line sugar.
 " nnoremap <leader>ff <cmd>Telescope find_files<cr>
 map <C-p> :Telescope find_files<CR>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <C-f> :Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
