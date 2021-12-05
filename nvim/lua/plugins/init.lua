@@ -74,5 +74,6 @@ return require('packer').startup(function(use)
     use {'windwp/nvim-autopairs'}
 
     use 'akinsho/toggleterm.nvim'
+    use 'glepnir/dashboard-nvim'
 end)
 
