@@ -17,4 +17,5 @@ messages = {
     'Dependency inversion principle - When classes talk to each other in a very specific way, they both depend on each other to never change. Instead classes should use promises (interfaces, parents), so classes can change as long as they keep the promise.',
 }
 imsg = math.random(#messages)
-vim.g.dashboard_custom_footer = {messages[imsg]}
+-- vim.g.dashboard_custom_footer = {messages[imsg]}
+vim.g.dashboard_custom_footer = {}

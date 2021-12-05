@@ -9,7 +9,7 @@ local golang_opts = {
     -- linters: revive, errcheck, staticcheck, golangci-lint
     linter = 'golangci_lint',
     -- qf or vt
-    lint_prompt_style = 'qf',
+    lint_prompt_style = 'disabled',
     formatter = 'goimports',
     test_flags = {'-v'},
     test_timeout = '30s',
@@ -26,8 +26,7 @@ local golang_opts = {
 }
 -- setup nvim-go
 require('go').setup(golang_opts)
--- setup lsp client
--- require('lspconfig').gopls.setup({})
+-- -- setup lsp client
 local lspconfig = require'lspconfig'
 lspconfig.gopls.setup({
   settings = {
@@ -36,3 +35,4 @@ lspconfig.gopls.setup({
     }
   }
 })
+
