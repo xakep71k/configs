@@ -5,11 +5,11 @@ end)
 
 local golang_opts = {
     auto_format = true,
-    auto_lint = true,
     -- linters: revive, errcheck, staticcheck, golangci-lint
     linter = 'golangci_lint',
     -- qf or vt
-    lint_prompt_style = 'disabled',
+    auto_lint = false,
+    lint_prompt_style = 'qf',
     formatter = 'goimports',
     test_flags = {'-v'},
     test_timeout = '30s',

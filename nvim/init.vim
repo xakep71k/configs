@@ -137,7 +137,7 @@ let g:nerdtree_tabs_open_on_console_startup=2
 "Add a close button in the upper right for tabs
 " let g:tablineclosebutton=1
 "Automatically find and select currently opened file in NERDTree
-" let g:nerdtree_tabs_autofind=1
+let g:nerdtree_tabs_autofind=1
 "Add folder icon to directories
 "Hide expand/collapse arrows
 " let g:NERDTreeDirArrowExpandable = "+"
