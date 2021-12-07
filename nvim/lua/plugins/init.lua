@@ -66,14 +66,10 @@ return require('packer').startup(function(use)
         requires = {'kyazdani42/nvim-web-devicons', opt = true}
     }
 
-    -- use 'rmagatti/auto-session'
-
-    use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
     use 'onsails/lspkind-nvim'
 
     use {'windwp/nvim-autopairs'}
 
     use 'akinsho/toggleterm.nvim'
-    -- use 'glepnir/dashboard-nvim'
 end)
 
