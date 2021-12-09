@@ -12,6 +12,7 @@ sudo apt-add-repository ppa:fish-shell/release-3
 sudo apt-get update
 sudo apt-get install fish powerline fonts-powerline exa
 #Note: for exa install nerd font called Arimo
+# CascadiaCode for oh my posh
 
 #
 # oh my fish shell
