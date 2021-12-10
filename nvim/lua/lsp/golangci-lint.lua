@@ -17,3 +17,4 @@ end
 lspconfig.golangcilsp.setup {
 	filetypes = {'go'}
 }
+

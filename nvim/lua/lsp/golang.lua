@@ -31,7 +31,7 @@ local lspconfig = require'lspconfig'
 lspconfig.gopls.setup({
     settings = {
         gopls =  {
-            buildFlags =  {"-tags=licensing"}
+            buildFlags =  {"-tags=licensing,pdk"}
         }
     }
 })
