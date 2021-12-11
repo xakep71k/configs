@@ -81,12 +81,6 @@ else
 	set mouse=nvi
 endif
 
-if &term =~ '^screen'
-  " tmux knows the extended mouse mode
-  set ttymouse=xterm2
-endif
-
-
 set hls
 set wildmode=list:longest "autocomplete like bash
 set ignorecase
@@ -265,3 +259,4 @@ nnoremap <leader>gs <cmd>Telescope git_status<cr>
 " nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 " ===================================================
 " NOTE: You can use other key to expand snippet.
+
