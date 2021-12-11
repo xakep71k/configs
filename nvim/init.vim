@@ -210,7 +210,6 @@ set completeopt=menuone,noinsert,noselect
 " Avoid showing extra messages when using completion
 set shortmess+=c
 
-autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 200)
 "=============== END: rust settings ==================
 
 " Code navigation shortcuts for LSP
@@ -259,4 +258,5 @@ nnoremap <leader>gs <cmd>Telescope git_status<cr>
 " nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 " ===================================================
 " NOTE: You can use other key to expand snippet.
-
+let g:goimports = 0
+let g:goimports_simplify = 1

@@ -48,6 +48,7 @@ return require('packer').startup(function(use)
 
     -- Golang:
     use {'crispgm/nvim-go', require = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}} }
+    use 'mattn/vim-goimports'
 
     -- For golang and rust
     use 'nvim-lua/popup.nvim'
