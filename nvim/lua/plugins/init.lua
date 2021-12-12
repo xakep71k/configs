@@ -72,6 +72,6 @@ return require('packer').startup(function(use)
     use {'windwp/nvim-autopairs'}
 
     use 'akinsho/toggleterm.nvim'
-    -- use 'dense-analysis/ale'
+    use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
 end)
 
