@@ -97,6 +97,7 @@ set foldlevel=99
 " to fix copy in clipboard during remote connection
 let g:clipboard = { 'name': 'xsel', 'copy': { '+': 'xsel -ib', '*': 'xsel -ip' }, 'paste': { '+': 'xsel -ob', '*': 'xsel -op' }, 'cache_enabled': 1 }
 
+set number
 set relativenumber
 
 " undo history
@@ -258,5 +259,4 @@ nnoremap <leader>gs <cmd>Telescope git_status<cr>
 " nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 " ===================================================
 " NOTE: You can use other key to expand snippet.
-let g:goimports = 0
-let g:goimports_simplify = 1
+let g:transparent_enabled = v:true

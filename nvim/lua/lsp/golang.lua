@@ -10,9 +10,8 @@ local golang_opts = {
     auto_lint = false,
     -- qf or vt
     lint_prompt_style = 'qf',
-    -- formatter =  ['gofumpt', 'goimports'],
-    formatter =  'gofumpt',
-    auto_format = false,
+    -- formatter =  ['gofumpt', 'goimports', 'gofmt'],
+    formatter =  'goimports',
     test_flags = {'-v'},
     test_timeout = '30s',
     test_env = {},

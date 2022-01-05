@@ -48,7 +48,7 @@ return require('packer').startup(function(use)
 
     -- Golang:
     use {'crispgm/nvim-go', require = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}} }
-    use 'mattn/vim-goimports'
+    -- use 'mattn/vim-goimports'
 
     -- For golang and rust
     use 'nvim-lua/popup.nvim'
@@ -73,5 +73,7 @@ return require('packer').startup(function(use)
 
     use 'akinsho/toggleterm.nvim'
     use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
+    use 'xiyaowong/nvim-transparent'
+    use 'mcchrish/nnn.vim'
 end)
 
