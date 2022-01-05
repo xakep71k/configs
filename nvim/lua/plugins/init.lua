@@ -74,6 +74,6 @@ return require('packer').startup(function(use)
     use 'akinsho/toggleterm.nvim'
     use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
     use 'xiyaowong/nvim-transparent'
-    use 'mcchrish/nnn.vim'
+    use { "luukvbaal/nnn.nvim" }
 end)
 
