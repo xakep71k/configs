@@ -1,5 +1,5 @@
 export TERM=screen-256color
-set PATH ~/soft/platform-tools ~/soft/anaconda3/bin /home/alek/.local/bin /home/alek/bin /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/games /usr/local/games /snap/bin /home/alek/.fzf/bin /home/alek/go/bin ~/.cargo/bin
+set PATH ~/soft/platform-tools ~/soft/anaconda3/bin ~/.local/bin ~/bin /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/games /usr/local/games /snap/bin ~/.fzf/bin ~/go/bin ~/.cargo/bin
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
