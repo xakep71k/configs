@@ -31,7 +31,8 @@ return require('packer').startup(function(use)
     use { "sonph/onehalf", rtp = "vim" }
     use 'chriskempson/base16-vim'
     use 'jacoborus/tender.vim'
-    use 'ayu-theme/ayu-vim'
+    -- use 'ayu-theme/ayu-vim'
+    use 'luxed/ayu-vim'
     use 'drewtempelmeyer/palenight.vim'
 
     -- File Browser:

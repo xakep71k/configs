@@ -109,14 +109,14 @@ set undoreload=1000000        " number of lines to save for undo
 "set so=999
 set title
 
-:"THEMES:
+"THEMES:
 set termguicolors     " enable true colors support
 " set background=dark
 " colorscheme gruvbox
 " colorscheme onehalfdark
 " let ayucolor="dark"   " for dark version of theme
-" let ayucolor="light"  " for light version of theme
-let ayucolor="mirage" " for mirage version of theme
+let ayucolor="light"  " for light version of theme
+"let ayucolor="mirage" " for mirage version of theme
 colorscheme ayu
 " colorscheme palenight
 " colorscheme tender

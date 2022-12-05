@@ -1,5 +1,6 @@
 export TERM=screen-256color
-set PATH ~/soft/platform-tools ~/soft/anaconda3/bin ~/.local/bin ~/bin /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/games /usr/local/games /snap/bin ~/.fzf/bin ~/go/bin ~/.cargo/bin
+# set PATH ~/soft/platform-tools ~/soft/anaconda3/bin ~/.local/bin ~/bin /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/games /usr/local/games /snap/bin ~/.fzf/bin ~/go/bin ~/.cargo/bin
+set PATH ~/soft/platform-tools ~/.local/bin ~/bin /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/games /usr/local/games /snap/bin ~/.fzf/bin ~/go/bin ~/.cargo/bin
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
@@ -15,4 +16,10 @@ set fish_prompt_pwd_dir_length 0
 setenv LESS "-asrRix8" # scroll less in terminal
 alias ls="ls --icons"
 alias f=fg
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+#eval /home/alek/soft/anaconda3/bin/conda "shell.fish" "hook" $argv | source
+# <<< conda initialize <<<
 
